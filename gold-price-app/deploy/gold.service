@@ -1,0 +1,20 @@
+[Unit]
+Description=Gold Price Flask App (Gunicorn)
+After=network.target
+
+[Service]
+Type=simple
+User=nginx
+Group=nginx
+WorkingDirectory=/opt/gold-price-app
+EnvironmentFile=/opt/gold-price-app/.env
+ExecStart=/opt/gold-price-app/.venv/bin/gunicorn -c /opt/gold-price-app/gunicorn.conf.py app:app
+Restart=always
+RestartSec=5
+KillSignal=SIGQUIT
+TimeoutStopSec=20
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

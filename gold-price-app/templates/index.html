@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>黄金实时价格</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="card" aria-live="polite">
+            <h1>黄金实时价格</h1>
+            <p class="symbol" id="symbol">XAU/USD</p>
+
+            <div class="loader" id="loader"></div>
+
+            <p class="price" id="price">--</p>
+            <p class="change" id="change">--</p>
+            <p class="updated" id="updated">更新时间：--</p>
+            <p class="status" id="status"></p>
+            <p class="error" id="error"></p>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
